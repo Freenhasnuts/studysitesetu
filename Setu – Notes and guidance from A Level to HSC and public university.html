@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Setu – Notes and guidance from A Level to HSC and public university</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Hind+Siliguri:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef3f0;--surface:#fff;--ink:#12302d;--mute:#52706c;--line:#c9d8d3;--river:#1f5fd1;--sun:#f2a900;--sunink:#3a2800;--ok:#1d7a4d;--bad:#b3362b;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1f1d;--surface:#142b28;--ink:#e6f1ee;--mute:#9bb8b3;--line:#27433f;--river:#7aa6ff;--sun:#f6b93b;--sunink:#2a1d00;--ok:#5fd19a;--bad:#ff8a7d}}
+:root[data-theme="dark"]{--bg:#0d1f1d;--surface:#142b28;--ink:#e6f1ee;--mute:#9bb8b3;--line:#27433f;--river:#7aa6ff;--sun:#f6b93b;--sunink:#2a1d00;--ok:#5fd19a;--bad:#ff8a7d}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 "Hind Siliguri",system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque","Hind Siliguri",sans-serif;line-height:1.1;margin:0}
+a{color:inherit}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+header{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
+.logo{font:800 24px "Bricolage Grotesque",sans-serif;text-decoration:none;display:flex;align-items:center;gap:8px}
+nav a{margin-left:18px;text-decoration:none;color:var(--mute);font-weight:500}
+nav a:hover{color:var(--ink)}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--river);outline-offset:2px}
+/* hero */
+.hero{padding:34px 0 56px}
+.hero h1{font-size:clamp(38px,7vw,72px);font-weight:800;max-width:14ch;letter-spacing:-.02em}
+.hero p.lead{max-width:52ch;color:var(--mute);font-size:19px;margin:18px 0 30px}
+.bridge{background:var(--surface);border:2px solid var(--ink);border-radius:20px;padding:22px}
+.pick{display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:end}
+.pick label{display:block;font-size:14px;color:var(--mute);margin-bottom:6px}
+select{width:100%;padding:12px;border:2px solid var(--line);border-radius:12px;background:var(--bg)}
+.arrow{font-size:28px;padding-bottom:8px;color:var(--sun)}
+.span{position:relative;height:90px;margin:22px 0 6px}
+.span svg{width:100%;height:100%}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:0;padding:0;list-style:none}
+.steps li{border-left:5px solid var(--sun);padding:6px 12px;background:var(--bg);border-radius:0 12px 12px 0}
+.steps b{display:block;font-family:"Bricolage Grotesque",sans-serif}
+.steps span{font-size:15px;color:var(--mute)}
+.note-warn{font-size:14px;color:var(--mute);margin:14px 0 0}
+section{padding:46px 0}
+h2{font-size:clamp(28px,4vw,40px);margin-bottom:8px}
+.sub{color:var(--mute);margin:0 0 22px;max-width:60ch}
+/* notes */
+.tools{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px}
+.tools input{flex:1;min-width:200px;padding:11px 14px;border:2px solid var(--line);border-radius:12px;background:var(--surface)}
+.chip{border:2px solid var(--line);background:var(--surface);padding:8px 14px;border-radius:99px}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(235px,1fr));gap:14px}
+.note{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:8px}
+.note small{color:var(--mute)}
+.tag{align-self:flex-start;font-size:13px;padding:2px 10px;border-radius:99px;background:var(--sun);color:var(--sunink);font-weight:600}
+.tag.hsc{background:var(--river);color:#fff}
+.note button{margin-top:auto;border:2px solid var(--ink);background:none;border-radius:10px;padding:7px}
+.note button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.empty{grid-column:1/-1;padding:24px;border:2px dashed var(--line);border-radius:14px;color:var(--mute)}
+/* unis */
+.unis{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.uni{border-top:6px solid var(--river);background:var(--surface);padding:16px;border-radius:0 0 14px 14px}
+.uni:nth-child(even){border-top-color:var(--sun)}
+.uni h3{font-size:22px;margin-bottom:6px}
+.uni p{margin:0;font-size:15px;color:var(--mute)}
+/* practice + planner */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:760px){.two{grid-template-columns:1fr}.pick{grid-template-columns:1fr}.arrow{transform:rotate(90deg);justify-self:center;padding:0}nav a:not(:last-child){display:none}}
+.card{background:var(--surface);border:2px solid var(--ink);border-radius:18px;padding:20px}
+.opt{display:block;width:100%;text-align:left;margin-top:8px;padding:10px 12px;border:2px solid var(--line);border-radius:12px;background:var(--bg)}
+.opt.ok{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 18%,var(--bg))}
+.opt.bad{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 15%,var(--bg))}
+.fb{min-height:1.6em;margin:10px 0 0;font-size:15px;color:var(--mute)}
+.btn{background:var(--sun);color:var(--sunink);border:0;border-radius:12px;padding:11px 18px;font-weight:600}
+.row{display:flex;gap:10px;align-items:end;flex-wrap:wrap;margin-bottom:14px}
+.row>div{flex:1;min-width:120px}
+.row input{width:100%;padding:11px;border:2px solid var(--line);border-radius:12px;background:var(--bg)}
+.bar{display:flex;align-items:center;gap:10px;margin:8px 0;font-size:15px}
+.bar i{display:block;height:14px;border-radius:7px;background:var(--river);min-width:6px}
+.bar span:first-child{width:92px}
+dialog{border:2px solid var(--ink);border-radius:20px;background:var(--surface);color:var(--ink);padding:24px;width:min(460px,92vw);max-height:90vh;overflow:auto}
+dialog::backdrop{background:rgba(8,24,22,.6)}
+.tabs{display:flex;gap:8px;margin:14px 0}
+.f{margin:0 0 12px}.f label{display:block;font-size:14px;color:var(--mute);margin-bottom:4px}
+.f input,.f select{width:100%;padding:11px;border:2px solid var(--line);border-radius:12px;background:var(--bg)}
+.f.two2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.err{color:var(--bad);font-size:14px;min-height:1.3em;margin:0 0 8px}
+.link{background:none;border:0;color:var(--mute);text-decoration:underline;padding:6px}
+#authBtn{margin-left:18px;border:2px solid var(--ink);background:none;border-radius:99px;padding:6px 16px;font-weight:600}
+#hello{background:var(--sun);color:var(--sunink);border-radius:14px;padding:12px 16px;margin-bottom:14px;font-weight:500}
+footer{padding:30px 0 50px;color:var(--mute);font-size:14px;border-top:1px solid var(--line)}
+@media(prefers-reduced-motion:no-preference){.pulse{animation:p 2.4s ease-in-out infinite}@keyframes p{50%{transform:translateY(-4px)}}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+ <a class="logo" href="#top"><svg width="30" height="22" viewBox="0 0 30 22" aria-hidden="true"><path d="M1 18h28M3 18C3 6 27 6 27 18M9 18v-7M15 18V8M21 18v-7" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>Setu</a>
+ <nav><a href="#notes">Notes</a><a href="#unis">University prep</a><a href="#practice">Practice</a><button id="authBtn">Sign in</button></nav>
+</header>
+
+<main id="top">
+<div class="hero">
+ <h1>Cross from A Level to HSC and a public university seat.</h1>
+ <p class="lead">Setu gives you notes, a clear route and daily practice for students moving between the British-curriculum and the national curriculum.</p>
+ <div class="bridge" aria-live="polite">
+  <div class="pick">
+   <div><label for="from">I am at</label><select id="from"><option value="o">O Level</option><option value="a" selected>A Level</option><option value="as">AS Level</option></select></div>
+   <div class="arrow pulse" aria-hidden="true">⟶</div>
+   <div><label for="to">I want to reach</label><select id="to"><option value="hsc">HSC (Bangladesh board)</option><option value="uni" selected>Public university admission</option><option value="eng">BUET / engineering</option><option value="med">Medical (MBBS)</option></select></div>
+  </div>
+  <div class="span"><svg id="svg" viewBox="0 0 600 90" preserveAspectRatio="none" aria-hidden="true"></svg></div>
+  <ol class="steps" id="steps"></ol>
+  <p class="note-warn">Eligibility rules and equivalence requirements change each year. Always confirm with the official admission circular before you decide.</p>
+ </div>
+</div>
+
+<section id="notes">
+ <h2>Notes library</h2>
+ <p class="sub">Short, exam-focused notes. Filter by stage, search by topic, and save what you want to revise.</p>
+ <div class="tools">
+  <input id="q" type="search" placeholder="Search a topic, e.g. vectors" aria-label="Search notes">
+  <button class="chip" data-f="all" aria-pressed="true">All</button>
+  <button class="chip" data-f="bridge" aria-pressed="false">Bridge notes</button>
+  <button class="chip" data-f="hsc" aria-pressed="false">HSC</button>
+  <button class="chip" data-f="saved" aria-pressed="false">Saved (<span id="sc">0</span>)</button>
+ </div>
+ <div class="grid" id="grid"></div>
+</section>
+
+<section id="unis">
+ <h2>Public university prep</h2>
+ <p class="sub">Know what each test rewards, then plan around it.</p>
+ <div class="unis">
+  <div class="uni"><h3>Dhaka University</h3><p>Unit-based MCQ tests. Strong English and general knowledge matter for most units.</p></div>
+  <div class="uni"><h3>BUET</h3><p>Heavy on Physics, Chemistry and Mathematics, followed by a written round and drawing/English where applicable.</p></div>
+  <div class="uni"><h3>Medical colleges</h3><p>MCQ test built on HSC Biology, Chemistry, Physics and English. Depth of textbook knowledge wins.</p></div>
+  <div class="uni"><h3>GST cluster</h3><p>One shared admission test for many public universities. Speed and accuracy on MCQs decide results.</p></div>
+ </div>
+</section>
+
+<section id="practice">
+ <h2>Practise and plan</h2>
+ <p class="sub">Five minutes of questions a day, and a study split that fits your timeline.</p>
+ <div class="two">
+  <div class="card">
+   <h3>Daily question</h3>
+   <p id="qtext" style="margin:10px 0 0"></p>
+   <div id="opts"></div>
+   <p class="fb" id="fb" aria-live="polite"></p>
+   <button class="btn" id="next">Next question</button>
+  </div>
+  <div class="card">
+   <h3>Study planner</h3>
+   <div class="row">
+    <div><label for="hrs" style="font-size:14px;color:var(--mute)">Hours per day</label><input id="hrs" type="number" min="1" max="14" value="4"></div>
+    <div><label for="wks" style="font-size:14px;color:var(--mute)">Weeks left</label><input id="wks" type="number" min="1" max="104" value="20"></div>
+    <div><label for="trk" style="font-size:14px;color:var(--mute)">Target</label><select id="trk"><option value="gen">General university</option><option value="eng">Engineering</option><option value="med">Medical</option></select></div>
+   </div>
+   <button class="btn" id="plan">Build my plan</button>
+   <div id="out" style="margin-top:14px" aria-live="polite"></div>
+  </div>
+ </div>
+</section>
+</main>
+<dialog id="authDlg" aria-labelledby="authT">
+ <h2 id="authT" style="font-size:28px">Welcome to Setu</h2>
+ <div class="tabs"><button class="chip" id="tabIn" aria-pressed="true" type="button">Sign in</button><button class="chip" id="tabUp" aria-pressed="false" type="button">Create account</button></div>
+ <div id="nameF" class="f" hidden><label for="aName">Full name</label><input id="aName" autocomplete="name"></div>
+ <div class="f"><label for="aMail">Email</label><input id="aMail" type="email" autocomplete="email"></div>
+ <div class="f"><label for="aPass">Password (8+ characters)</label><input id="aPass" type="password" autocomplete="current-password"></div>
+ <p class="err" id="aErr" role="alert"></p>
+ <button class="btn" id="aGo" type="button">Sign in</button> <button class="link" id="aX" type="button">Close</button>
+ <p class="note-warn">Demo mode: accounts are saved only in this browser. Connect a real service before launch.</p>
+</dialog>
+<dialog id="profDlg" aria-labelledby="profT">
+ <h2 id="profT" style="font-size:28px">Tell us about your studies</h2>
+ <p class="sub" style="margin:8px 0 14px">We use this to tailor your route. Only the starred fields are required.</p>
+ <div class="f"><label for="pName">Full name *</label><input id="pName"></div>
+ <div class="f"><label for="pInst">Institution name *</label><input id="pInst" list="instList" placeholder="Start typing your school or college"><datalist id="instList"><option value="Dhaka College"><option value="Notre Dame College"><option value="Holy Cross College"><option value="Viqarunnisa Noon School and College"><option value="Scholastica"><option value="Sunnydale"><option value="Oxford International School"><option value="Chittagong College"><option value="Rajshahi College"></datalist></div>
+ <div class="f two2"><div><label for="pCur">Curriculum</label><select id="pCur"><option>O Level</option><option>AS Level</option><option selected>A Level</option><option>SSC</option><option>HSC</option><option>Other</option></select></div><div><label for="pYear">Current class or year</label><select id="pYear"><option>Year 1</option><option>Year 2</option><option>Gap year</option></select></div></div>
+ <div class="f"><label for="pGrp">Group or main subjects</label><input id="pGrp" placeholder="e.g. Science, or Maths, Physics, Chemistry"></div>
+ <div class="f"><label for="pTgt">Your target *</label><select id="pTgt"><option value="hsc">HSC results</option><option value="uni" selected>Public university admission</option><option value="eng">BUET / engineering</option><option value="med">Medical (MBBS)</option></select></div>
+ <div class="f two2"><div><label for="pTest">Test year</label><select id="pTest"><option>2026</option><option selected>2027</option><option>2028</option></select></div><div><label for="pDist">District</label><input id="pDist" placeholder="e.g. Dhaka"></div></div>
+ <p class="err" id="pErr" role="alert"></p>
+ <button class="btn" id="pGo" type="button">Save and continue</button> <button class="link" id="pOut" type="button">Sign out</button> <button class="link" id="pX" type="button">Skip for now</button>
+</dialog>
+<footer>Setu is an independent study aid. It is not affiliated with any board or university. Sample notes shown here are placeholders for your own content.</footer>
+</div>
+
+<script>
+const ROUTES={
+ "a|hsc":[["Compare syllabi","List which A Level topics map to HSC chapters."],["Fill the gaps","Bangla, ICT and Bangladesh studies need separate attention."],["Check equivalence","Confirm what certificate or board process applies."]],
+ "o|hsc":[["Finish the base","Strengthen SSC-level maths, science and Bangla."],["Pick a group","Science, business or humanities."],["Start HSC topics","Follow the national textbooks from chapter one."]],
+ "as|hsc":[["Compare syllabi","Match AS topics to HSC chapters."],["Cover the gaps","Add national-curriculum subjects."],["Check equivalence","Verify requirements with the official body."]],
+ "default":[["Map your syllabus","Match what you have studied to what the test covers."],["Close the gaps","Spend most time on topics you have never seen."],["Drill past questions","Timed MCQs three times a week."],["Take weekly mocks","Review every mistake in a notebook."]]};
+const NOTES=[
+ {t:"Vectors: A Level to HSC mapping",s:"Mathematics",k:"bridge",d:"Notation differences and shared methods."},
+ {t:"Organic chemistry reaction map",s:"Chemistry",k:"bridge",d:"Cambridge mechanisms beside HSC reactions."},
+ {t:"Mechanics and Newton's laws",s:"Physics",k:"hsc",d:"Core HSC derivations in one page."},
+ {t:"Cell division and genetics",s:"Biology",k:"hsc",d:"Mitosis, meiosis and inheritance patterns."},
+ {t:"Calculus essentials",s:"Mathematics",k:"bridge",d:"Integration techniques used in both systems."},
+ {t:"Bangla grammar for admission",s:"Bangla",k:"hsc",d:"Sandhi, samas and correct usage."},
+ {t:"English vocabulary and cloze",s:"English",k:"bridge",d:"High-frequency words and fill-in strategies."},
+ {t:"Bangladesh affairs quick facts",s:"General knowledge",k:"hsc",d:"History, geography and current affairs."}];
+const QS=[
+ {q:"What is the derivative of x³ with respect to x?",o:["x²","3x²","3x","x³/3"],a:1,e:"Power rule: bring the exponent down, reduce it by one."},
+ {q:"Which gas is released when a metal reacts with a dilute acid?",o:["Oxygen","Carbon dioxide","Hydrogen","Nitrogen"],a:2,e:"Metal + acid gives a salt and hydrogen gas."},
+ {q:"Choose the correct word: She is good ___ mathematics.",o:["in","at","on","with"],a:1,e:"The fixed phrase is 'good at'."},
+ {q:"The SI unit of force is the:",o:["Joule","Pascal","Newton","Watt"],a:2,e:"One newton accelerates 1 kg at 1 m/s²."}];
+const $=id=>document.getElementById(id);
+function route(){
+ const k=$("from").value+"|"+$("to").value;
+ let r=ROUTES[k]||(($("to").value==="hsc")?ROUTES["a|hsc"]:ROUTES.default);
+ $("steps").innerHTML=r.map(x=>`<li><b>${x[0]}</b><span>${x[1]}</span></li>`).join("");
+ const n=r.length,pts=[];
+ for(let i=0;i<n;i++)pts.push(40+i*(520/(n-1||1)));
+ $("svg").innerHTML=`<path d="M0 70H600" stroke="var(--line)" stroke-width="3"/><path d="M${pts[0]} 70C${pts[0]} 5 ${pts[n-1]} 5 ${pts[n-1]} 70" fill="none" stroke="var(--sun)" stroke-width="5" stroke-linecap="round"/>`+pts.map(x=>`<circle cx="${x}" cy="70" r="7" fill="var(--ink)"/>`).join("");
+}
+$("from").onchange=$("to").onchange=route;route();
+let saved=[];try{saved=JSON.parse(localStorage.getItem("setu-saved")||"[]")}catch(e){}
+let filt="all";
+function notes(){
+ const q=$("q").value.toLowerCase();
+ const list=NOTES.filter(n=>(filt==="all"||(filt==="saved"?saved.includes(n.t):n.k===filt))&&(n.t+n.s+n.d).toLowerCase().includes(q));
+ $("sc").textContent=saved.length;
+ $("grid").innerHTML=list.length?list.map(n=>`<article class="note"><span class="tag ${n.k==="hsc"?"hsc":""}">${n.k==="hsc"?"HSC":"Bridge"}</span><h3 style="font-size:19px">${n.t}</h3><small>${n.s}</small><div style="font-size:15px;color:var(--mute)">${n.d}</div><button aria-pressed="${saved.includes(n.t)}" data-t="${n.t}">${saved.includes(n.t)?"Saved":"Save note"}</button></article>`).join(""):`<div class="empty">No notes match. Clear the search or pick another filter.</div>`;
+}
+$("grid").onclick=e=>{const t=e.target.dataset.t;if(!t)return;saved=saved.includes(t)?saved.filter(x=>x!==t):[...saved,t];try{localStorage.setItem("setu-saved",JSON.stringify(saved))}catch(e){}notes()};
+$("q").oninput=notes;
+document.querySelectorAll(".chip").forEach(c=>c.onclick=()=>{filt=c.dataset.f;document.querySelectorAll(".chip").forEach(x=>x.setAttribute("aria-pressed",x===c));notes()});
+notes();
+let qi=0;
+function ask(){const x=QS[qi%QS.length];$("qtext").textContent=x.q;$("fb").textContent="";
+ $("opts").innerHTML=x.o.map((o,i)=>`<button class="opt" data-i="${i}">${o}</button>`).join("")}
+$("opts").onclick=e=>{const i=e.target.dataset.i;if(i===undefined)return;const x=QS[qi%QS.length];
+ document.querySelectorAll(".opt").forEach(b=>{b.disabled=true;if(+b.dataset.i===x.a)b.classList.add("ok");else if(b.dataset.i===i)b.classList.add("bad")});
+ $("fb").textContent=(+i===x.a?"Correct. ":"Not quite. ")+x.e};
+$("next").onclick=()=>{qi++;ask()};ask();
+const SPLIT={gen:{English:25,Mathematics:20,Bangla:20,"General knowledge":20,Science:15},eng:{Mathematics:35,Physics:30,Chemistry:25,English:10},med:{Biology:30,Chemistry:25,Physics:20,English:15,Bangla:10}};
+$("plan").onclick=()=>{
+ const h=Math.min(14,Math.max(1,+$("hrs").value||1)),w=Math.max(1,+$("wks").value||1),s=SPLIT[$("trk").value],tot=h*7*w;
+ $("out").innerHTML=`<p style="margin:0 0 8px">About <b>${tot}</b> study hours before your test.</p>`+Object.entries(s).map(([k,v])=>`<div class="bar"><span>${k}</span><i style="width:${v*2}px"></i><span>${Math.round(tot*v/100)} h</span></div>`).join("")+`<p class="note-warn">Spend the last two weeks on full timed mocks.</p>`;
+};
+/* ---- demo accounts (browser only) ---- */
+const rd=(k,d)=>{try{return JSON.parse(localStorage.getItem(k))??d}catch(e){return d}};
+const wr=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}};
+let users=rd("setu-users",{}),me=rd("setu-session",null),mode="in";
+const sha=async s=>[...new Uint8Array(await crypto.subtle.digest("SHA-256",new TextEncoder().encode(s)))].map(b=>b.toString(16).padStart(2,"0")).join("");
+function setMode(m){mode=m;$("tabIn").setAttribute("aria-pressed",m==="in");$("tabUp").setAttribute("aria-pressed",m==="up");$("nameF").hidden=m==="in";$("aGo").textContent=m==="in"?"Sign in":"Create account";$("aErr").textContent=""}
+$("tabIn").onclick=()=>setMode("in");$("tabUp").onclick=()=>setMode("up");
+$("aX").onclick=()=>$("authDlg").close();$("pX").onclick=()=>$("profDlg").close();
+function openProfile(){const p=(users[me]||{}).profile||{};$("pName").value=p.name||(users[me]||{}).name||"";$("pInst").value=p.inst||"";$("pCur").value=p.cur||"A Level";$("pYear").value=p.year||"Year 1";$("pGrp").value=p.grp||"";$("pTgt").value=p.tgt||"uni";$("pTest").value=p.test||"2027";$("pDist").value=p.dist||"";$("pErr").textContent="";$("profDlg").showModal()}
+$("authBtn").onclick=()=>me?openProfile():($("authDlg").showModal());
+$("aGo").onclick=async()=>{
+ const mail=$("aMail").value.trim().toLowerCase(),pw=$("aPass").value,nm=$("aName").value.trim(),err=$("aErr");
+ if(!/^\S+@\S+\.\S+$/.test(mail)){err.textContent="Enter a valid email address.";return}
+ if(pw.length<8){err.textContent="Use a password with at least 8 characters.";return}
+ const h=await sha(pw);
+ if(mode==="up"){
+  if(!nm){err.textContent="Enter your full name.";return}
+  if(users[mail]){err.textContent="This email already has an account. Switch to Sign in.";return}
+  users[mail]={name:nm,h};wr("setu-users",users);me=mail;wr("setu-session",me);
+  $("authDlg").close();refresh();openProfile();
+ }else{
+  if(!users[mail]||users[mail].h!==h){err.textContent="Email or password is incorrect.";return}
+  me=mail;wr("setu-session",me);$("authDlg").close();refresh();
+  if(!users[me].profile)openProfile();
+ }
+ $("aPass").value=""};
+$("pGo").onclick=()=>{
+ const g=id=>$(id).value.trim(),e=$("pErr");
+ if(!g("pName")||!g("pInst")){e.textContent="Add your name and institution name to continue.";return}
+ users[me].profile={name:g("pName"),inst:g("pInst"),cur:g("pCur"),year:g("pYear"),grp:g("pGrp"),tgt:g("pTgt"),test:g("pTest"),dist:g("pDist")};
+ wr("setu-users",users);$("profDlg").close();refresh()};
+$("pOut").onclick=()=>{me=null;wr("setu-session",null);$("profDlg").close();refresh()};
+function refresh(){
+ const u=me&&users[me],p=u&&u.profile,h=$("hello");if(h)h.remove();
+ $("authBtn").textContent=u?(p?p.name:u.name).split(" ")[0]:"Sign in";
+ if(!p)return;
+ const cm={"O Level":"o","AS Level":"as","A Level":"a"};
+ if(cm[p.cur])$("from").value=cm[p.cur];$("to").value=p.tgt;route();
+ const d=document.createElement("div");d.id="hello";
+ d.textContent="Welcome back, "+p.name.split(" ")[0]+". Your route is set for "+p.inst+", with your test in "+p.test+".";
+ document.querySelector(".bridge").before(d)}
+refresh();
+</script>
+</body>
+</html>
